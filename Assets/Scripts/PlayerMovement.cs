@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float movement = Input.GetAxis("Horizontal");
         float verticalmovement = Input.GetAxis("Vertical");
-        transform.position += new Vector3(movement, verticalmovement, 0) * speed * Time.deltaTime;
+        transform.position += new Vector3(movement, verticalmovement, 0) * speed;
 
         if (movement == 0)
             animator.SetBool("IsRunning", false);
