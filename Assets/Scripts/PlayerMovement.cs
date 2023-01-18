@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
         float verticalmovement = Input.GetAxis("Vertical");
         transform.position += new Vector3(movement, verticalmovement, 0) * speed;
 
-        if (movement == 0)
+        Debug.Log(movement);
+
+        if (movement == 0 && verticalmovement == 0)
             animator.SetBool("IsRunning", false);
         else
             animator.SetBool("IsRunning", true);
@@ -31,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
             sr.flipX = true;
         if (Input.GetKeyDown(KeyCode.D))
             sr.flipX = false;
-        
+        if (Input.GetKeyDown(KeyCode.W))
+            animator.SetBool("IsRunning", true);
+
     }
 
     
