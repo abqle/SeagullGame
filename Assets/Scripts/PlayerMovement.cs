@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -23,19 +24,19 @@ public class PlayerMovement : MonoBehaviour
         transform.position += new Vector3(movement, verticalmovement, 0) * speed;
 
         Debug.Log(movement);
-
-        if (movement == 0 && verticalmovement == 0)
+        
+        if (movement == 0)
             animator.SetBool("IsRunning", false);
         else
             animator.SetBool("IsRunning", true);
-
+        if (verticalmovement != 0)
+            animator.SetBool("IsVertical", true);
         if (Input.GetKeyDown(KeyCode.A))
             sr.flipX = true;
         if (Input.GetKeyDown(KeyCode.D))
             sr.flipX = false;
-        if (Input.GetKeyDown(KeyCode.W))
-            animator.SetBool("IsRunning", true);
-
+        
+       
     }
 
     
